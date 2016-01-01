@@ -32,11 +32,10 @@ public class PlayerInteract implements Listener {
 		if(i.getAmount() > 1)return;
 		
 		if(Main.getInstance().cooldown.containsKey(e.getPlayer()) && Main.getInstance().cooldown.get(e.getPlayer()) > System.currentTimeMillis()){
-			e.getPlayer().sendMessage(ChatColor.RED + "Merci d'éviter d'ouvrir votre sac à dos trop souvent.");
+			e.getPlayer().sendMessage(ChatColor.RED + "Please stop spamming your backpack.");
 			e.setCancelled(true);
 			return;
 		}
-		e.getPlayer().sendMessage(ChatColor.GREEN + "Vous avez ouvert votre Sac à dos.");
 		Main.getInstance().cooldown.put(e.getPlayer(), System.currentTimeMillis() + 1000);
 		ItemMeta m = i.getItemMeta();
 
@@ -56,7 +55,7 @@ public class PlayerInteract implements Listener {
 				e.getPlayer().openInventory(ItemSerialization.fromBase64(serialized,"BackPack"));
 			} catch (IOException e1) {
 				e1.printStackTrace();
-				e.getPlayer().sendMessage(ChatColor.RED + "Une érreur s'est produite lors de l'ouverture du sac à dos, merci d'en informer un admin.");
+				e.getPlayer().sendMessage(ChatColor.RED + "Error while opening your backpack, please report it to an admin.");
 			}
 		}
 		e.setCancelled(true);

@@ -10,7 +10,6 @@ import lombok.Getter;
 public class Options {
 	
 	@Getter private static ItemStack item;
-	@Getter private static ItemStack closeItem;
 	
 	
 	public static void load(){
@@ -21,8 +20,5 @@ public class Options {
 		item.setItemMeta(m);
 		
 		
-		closeItem = new ItemStack(Material.BARRIER);
-		ItemMeta m2 = closeItem.getItemMeta();
-		m2.setDisplayName("Close");
 	}
 }
