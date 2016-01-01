@@ -1,0 +1,4 @@
+name: CrackedBackPack
+main: fr.hugo4715.CrackedBackPack.Main
+version: 1.0
+load: postworld
