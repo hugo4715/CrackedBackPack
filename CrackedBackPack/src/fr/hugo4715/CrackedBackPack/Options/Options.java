@@ -17,7 +17,7 @@ public class Options {
 		item = new ItemStack(Material.FIREWORK_CHARGE);
 		item.setAmount(1);
 		ItemMeta m = item.getItemMeta();
-		m.setDisplayName(ChatColor.GREEN + "Sac a dos");
+		m.setDisplayName(ChatColor.GREEN + "BackPack");
 		item.setItemMeta(m);
 		
 		
