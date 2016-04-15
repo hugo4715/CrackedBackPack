@@ -13,6 +13,12 @@ import org.yaml.snakeyaml.external.biz.base64Coder.Base64Coder;
 
 // For 1.7.2
 public class ItemSerialization {
+	
+	
+	
+	
+	
+	
 	 public static String toBase64(Inventory inventory) {
 	        try {
 	            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

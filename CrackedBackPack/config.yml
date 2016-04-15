@@ -1,0 +1,5 @@
+#
+#WARNING: Changer les options rends les sacs crées precedemments iutilisables!
+#
+material: FIREWORK_CHARGE
+slots: 36

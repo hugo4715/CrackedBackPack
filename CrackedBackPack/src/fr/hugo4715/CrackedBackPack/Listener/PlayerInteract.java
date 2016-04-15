@@ -28,7 +28,9 @@ public class PlayerInteract implements Listener {
 		if(e.getItem() == null)return;
 		ItemStack i = e.getItem();
 		if(!(i.getType().equals(Options.getItem().getType())))return;
-		if(!(i.getData().equals(Options.getItem().getData())))return;
+		if(i.getItemMeta() == null)return;
+		if(i.getItemMeta().getDisplayName() == null)return;
+		if(!i.getItemMeta().getDisplayName().equals(Options.getItem().getItemMeta().getDisplayName()))return;
 		if(i.getAmount() > 1)return;
 		
 		if(Main.getInstance().cooldown.containsKey(e.getPlayer()) && Main.getInstance().cooldown.get(e.getPlayer()) > System.currentTimeMillis()){
@@ -45,7 +47,7 @@ public class PlayerInteract implements Listener {
 			lore.add("id:" + UUID.randomUUID());
 			m.setLore(lore);
 			e.getItem().setItemMeta(m);
-			e.getPlayer().openInventory(Bukkit.createInventory(null, 36, "BackPack"));
+			e.getPlayer().openInventory(Bukkit.createInventory(null, Options.getSlots(), "BackPack"));
 		}
 		else{
 			//show the inventory

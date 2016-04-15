@@ -1,5 +1,7 @@
 package fr.hugo4715.CrackedBackPack;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
@@ -21,7 +23,33 @@ public class Main extends JavaPlugin{
 	public void onEnable(){
 		instance = this;
 		this.getDataFolder().mkdir();
-		Options.load();
+		try {
+			Options.load();
+		} catch (FileNotFoundException e) {
+			getLogger().severe("Erreur lors du chargement de la config:");
+			getLogger().severe(e.getMessage());
+			getLogger().severe("Erreur complete:");
+			e.printStackTrace();
+			
+			Bukkit.getPluginManager().disablePlugin(this);
+			return;
+		} catch (IllegalArgumentException e) {
+			getLogger().severe("Erreur lors du chargement de la config:");
+			getLogger().severe(e.getMessage());
+			getLogger().severe("Erreur complete:");
+			e.printStackTrace();
+			
+			Bukkit.getPluginManager().disablePlugin(this);
+			return;
+		} catch (IOException e) {
+			getLogger().severe("Erreur lors du chargement de la config:");
+			getLogger().severe(e.getMessage());
+			getLogger().severe("Erreur complete:");
+			e.printStackTrace();
+			
+			Bukkit.getPluginManager().disablePlugin(this);
+			return;
+		}
 		this.registerRecipe();
 		EventManager.registerEvents();
 	}
